@@ -47,6 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
     
 });
 
+
+
+
 // testimonials carousel
 document.addEventListener("DOMContentLoaded", function () {
     const slidesContainer = document.querySelector(".slides");
@@ -138,4 +141,28 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialization
     updateSlider();
     setupAutoplay();
+
+
+
+
+    // Animation when scrolling to elements with the class .reveal.
+    function revealOnScroll() {
+    const reveals = document.querySelectorAll(".reveal-left, .reveal-right");
+
+    reveals.forEach(reveal => {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveal.getBoundingClientRect().top;
+        const elementBottom = reveal.getBoundingClientRect().bottom;
+        const revealPoint = 100;
+
+        if (elementTop < windowHeight - revealPoint && elementBottom > 0) {
+            reveal.classList.add("active");
+        } else {
+            reveal.classList.remove("active");
+        }
+    });
+}
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
 });
