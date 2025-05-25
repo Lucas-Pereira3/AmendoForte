@@ -42,7 +42,7 @@ custom scroll bar
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #8b5e3c;
 }
 
 /* 
@@ -103,7 +103,7 @@ navbar styling
 }
 
 .navbar.sticky {
-    padding: 15px 0;
+    padding: 5px 0;
     background: #8b5e3c;
 }
 
@@ -228,8 +228,8 @@ menu btn styling
 
 .home {
     display: flex;
-    background: url("images/bannerPacoca.png") no-repeat center;
-    height: 100vh;
+    background: url("images/banner-1415.png") no-repeat center;
+    height: 90vh;
     color: #fff;
     min-height: 500px;
     background-size: cover;
@@ -522,62 +522,127 @@ a:hover {
 comments section styling
 */
 
-.wrapper {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
-    align-items: stretch;
+.testimonials {
+  padding: 70px 20px;
 }
 
-.wrapper .box {
-    background: rgb(243, 243, 243);
-    width: calc(33% - 10px);
-    padding: 25px;
-    border-radius: 3px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-
+.testimonials .title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c2c2c;
+  margin-bottom: 50px;
+  font-weight: 600;
 }
 
-.wrapper .box i.quote {
-    font-size: 20px;
-    color: #f47932;
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
-.wrapper .box .content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 10px;
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+  align-items: stretch;
 }
 
-.box .info .name {
-    font-weight: 600;
-    font-size: 17px;
+.slide {
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
 }
 
-.box .content .image {
-    height: 75px;
-    width: 75px;
-    padding: 3px;
-    background: #88612e;
-    border-radius: 50%;
+.testimonial-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 100%;
+  min-height: 300px;
+  width: 100%;
+  border: 1px solid #eee;
+  transition: transform 0.3s ease;
 }
 
-.content .image img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #fff;
+.testimonial-card:hover {
+  transform: translateY(-5px);
 }
 
-.box:hover .content .image img {
-    border-color: #fff;
+.test-card-body .quote i {
+  font-size: 2rem;
+  color: #f86e1e;
+}
+
+.test-card-body h2 {
+  margin-top: 15px;
+  font-size: 1.4rem;
+  color: #222;
+}
+
+.test-card-body p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.ratings {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #ffc107;
+}
+
+.profile {
+  margin-top: 25px;
+}
+
+.profile-image img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #d3c4be;
+}
+
+.profile-desc span {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 15px;
+  border-radius: 10%;
+  font-size: 1.5rem;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.nav:hover {
+  background: #f8631e;
+  color: #fff;
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
 }
 
 /* 
@@ -696,9 +761,37 @@ footer span a:hover {
 responsive media query start 
 */
 
+@media (max-width: 2560px) {
+    .home .max-width {
+        margin-left: 0px;
+    }
+
+    .home {
+
+        background-image: url("images/banner-2560.png");
+    }
+
+    .home .home-content .text-2 {
+        font-size: 70px;
+    }
+
+    .home .home-content .text-3 {
+        font-size: 30px;
+    }
+}
+
 @media (max-width: 1300px) {
     .home .max-width {
         margin-left: 0px;
+    }
+
+    .home {
+
+        background-image: url("images/banner-1289.png");
+    }
+
+    .home .home-content .text-3 {
+        font-size: 24px;
     }
 }
 
@@ -708,9 +801,17 @@ responsive media query start
         width: 350px;
         margin: 0;
     }
+
+    .home .home-content .text-3 {
+        font-size: 24px;
+    }
 }
 
 @media (max-width: 1045px) {
+
+    .home {
+        background-image: url("images/banner-1007.png");
+    }
     .wrapper .box {
         width: calc(50% - 10px);
         margin: 10px 0;
@@ -718,12 +819,47 @@ responsive media query start
 }
 
 @media (max-width: 991px) {
-    .max-width {
-        padding: 0 50px;
+    .home {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding-bottom: 40px;
+        text-align: center;
+        background-image: url("images/banner-991.png");
+    }
+
+    .home .max-width {
+        margin: 0;
+        width: 100%;
+    }
+
+    .home .home-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    
+    .home .home-content .text-2 {
+        font-size: 70px;
+
+    }
+    .home .home-content .text-3 {
+        font-size: 24px;
+    }
+
+    .home .home-content a {
+        font-size: 20px;
+        padding: 10px 24px;
     }
 }
 
-@media (max-width: 947px) {
+@media (max-width: 990px) {
+
+    .home {
+        background-image: url("images/banner-991.png");
+    }
     .menu-toggle {
         display: block;
         z-index: 999;
@@ -767,11 +903,11 @@ responsive media query start
     }
 
     .home .home-content .text-2 {
-        font-size: 70px;
+        font-size: 60px;
     }
 
     .home .home-content .text-3 {
-        font-size: 35px;
+        font-size: 24px;
     }
 
     .home .home-content a {
@@ -826,13 +962,10 @@ responsive media query start
       .product-amendoForte .item {
         padding: 0 15px;
       }
+      
 }
 
-@media (max-width: 702px) {
-    .wrapper .box {
-        width: 100%;
-    }
-}
+
 
 @media (max-width: 690px) {
     .max-width {
@@ -844,7 +977,7 @@ responsive media query start
     }
 
     .home .home-content .text-3 {
-        font-size: 32px;
+        font-size: 24px;
     }
 
     .home .home-content a {
@@ -873,6 +1006,7 @@ responsive media query start
         background-position: center;
         background-attachment: scroll;
         font-family: 'Ubuntu', sans-serif;
+        background-image: url("images/banner-500.png");
     }
 
     .home .home-content .text-2 {
@@ -880,7 +1014,7 @@ responsive media query start
     }
 
     .home .home-content .text-3 {
-        font-size: 27px;
+        font-size: 24px;
     }
 
     .right .text,

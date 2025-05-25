@@ -46,3 +46,96 @@ document.addEventListener("DOMContentLoaded", function () {
 
     
 });
+
+// testimonials carousel
+document.addEventListener("DOMContentLoaded", function () {
+    const slidesContainer = document.querySelector(".slides");
+    const slides = document.querySelectorAll(".slide");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+
+    let currentIndex = 0;
+    let slidesToShow = getSlidesToShow();
+    let slideWidth = 0;
+    let autoplayInterval;
+
+    // Function to determine how many slides to show
+    function getSlidesToShow() {
+        const windowWidth = window.innerWidth;
+        if (windowWidth <= 690) return 1; // Mobile
+        if (windowWidth <= 1045) return 2; // Tablet
+        return 3; // Desktop
+    }
+
+    // Update the position of the slides
+    function updateSlider() {
+        slidesToShow = getSlidesToShow();
+        slideWidth = slidesContainer.offsetWidth / slidesToShow;
+        
+        // Adjusts the width of the slides
+        slides.forEach(slide => {
+            slide.style.minWidth = `${slideWidth}px`;
+        });
+        
+        goToSlide(currentIndex);
+    }
+
+    // Navigate to a specific slide
+    function goToSlide(index) {
+        const maxIndex = slides.length - slidesToShow;
+        
+        // Limit the index
+        if (index > maxIndex) index = maxIndex;
+        if (index < 0) index = 0;
+        
+        currentIndex = index;
+        slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    // Go to the next slide
+    function nextSlide() {
+        const maxIndex = slides.length - slidesToShow;
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+        goToSlide(currentIndex);
+    }
+
+    // Go back to the previous slide
+    function prevSlide() {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = slides.length - slidesToShow;
+        }
+        goToSlide(currentIndex);
+    }
+
+    // Set up the autoplay
+    function setupAutoplay() {
+        clearInterval(autoplayInterval);
+        autoplayInterval = setInterval(nextSlide, 5000);
+    }
+
+    // Event listeners
+    nextBtn.addEventListener("click", () => {
+        nextSlide();
+        setupAutoplay();
+    });
+
+    prevBtn.addEventListener("click", () => {
+        prevSlide();
+        setupAutoplay();
+    });
+
+    // Updates when the window is resized
+    window.addEventListener("resize", () => {
+        updateSlider();
+    });
+
+    // Initialization
+    updateSlider();
+    setupAutoplay();
+});
