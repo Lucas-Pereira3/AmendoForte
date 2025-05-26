@@ -228,7 +228,7 @@ menu btn styling
 
 .home {
     display: flex;
-    background: url("images/banner-1415.png") no-repeat center;
+    background: url("images/banner-2560.png") no-repeat center;
     height: 90vh;
     color: #fff;
     min-height: 500px;
@@ -243,7 +243,7 @@ menu btn styling
 }
 
 .home .home-content .text-1 {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .home .home-content .text-2 {
@@ -796,7 +796,7 @@ responsive media query start
     }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1420px) {
     .home .max-width {
         margin-left: 0px;
     }
@@ -816,6 +816,11 @@ responsive media query start
         height: 350px;
         width: 350px;
         margin: 0;
+    }
+
+    .home {
+
+        background-image: url("images/banner-1289.png");
     }
 
     .home .home-content .text-3 {
@@ -984,6 +989,11 @@ responsive media query start
 
 
 @media (max-width: 690px) {
+
+    .home {
+        background-image: url("images/banner-500.png");
+    }
+
     .max-width {
         padding: 0 23px;
     }
@@ -1026,11 +1036,11 @@ responsive media query start
     }
 
     .home .home-content .text-2 {
-        font-size: 50px;
+        font-size: 52px;
     }
 
     .home .home-content .text-3 {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .right .text,
@@ -1097,6 +1107,22 @@ responsive media query start
 }
 
 @media (max-width: 380px) {
+
+    .home {
+        background-image: url("images/banner-380.png");
+    }
+    .home .home-content .text-2 {
+        font-size: 40px;
+    }
+
+    .home .home-content .text-3 {
+        font-size: 20px;
+    }
+
+    .home .home-content .text-1 {
+        font-size: 22px;
+    }
+
     .wrapper {
         margin: auto;
         padding: 0 2px;
@@ -1104,5 +1130,11 @@ responsive media query start
 
     .wrapper .box {
         padding: 10px;
+    }
+    
+    .btn-whatsapp .icone {
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
     }
 }
