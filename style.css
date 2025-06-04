@@ -276,7 +276,6 @@ menu btn styling
 .home .home-content a:hover {
 
     color: #f47932;
-    background: none;
 
 }
 
@@ -649,7 +648,7 @@ comments section styling
 }
 
 .nav:hover {
-  background: #f8631e;
+  background: #8b5e3c;
   color: #fff;
 }
 
