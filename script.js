@@ -45,13 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     
-});
 
-
-
-
-// testimonials carousel
-document.addEventListener("DOMContentLoaded", function () {
+    // testimonials carousel
     const slidesContainer = document.querySelector(".slides");
     const slides = document.querySelectorAll(".slide");
     const prevBtn = document.querySelector(".prev");
@@ -166,3 +161,4 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", revealOnScroll);
     window.addEventListener("load", revealOnScroll);
 });
+
